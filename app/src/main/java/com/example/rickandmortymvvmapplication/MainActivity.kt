@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // implement service interface
         val service:RickAndMortyApiService = retrofit.create(RickAndMortyApiService::class.java)
 
-        service.getCharacterById(8).enqueue(object :Callback<GetCharacterByIdResponse>{
+        service.getCharacterById(4).enqueue(object :Callback<GetCharacterByIdResponse>{
             override fun onResponse(call: Call<GetCharacterByIdResponse>, response: Response<GetCharacterByIdResponse>) {
                 //Toast.makeText(this@MainActivity,"this is response ---- ${response.body().toString()}",Toast.LENGTH_LONG).show()
                 if(!response.isSuccessful){
@@ -42,9 +42,18 @@ class MainActivity : AppCompatActivity() {
 
                 val body = response.body()
                 val image = body!!.image
-                binding.tvSpace.text = image
+                binding.tvName.text = body.name
+                binding.tvLifeStatus.text = body.status
+                binding.tvOrigin.text = body.origin.name
+                binding.tvSpecies.text = body.species
 
-                Glide.with(this@MainActivity).load(image).into(binding.ivImage);
+                if (body.gender.equals("male" , true)){
+                    binding.ivGender.setImageResource(R.drawable.male_image)
+                }else{
+                    binding.ivGender.setImageResource(R.drawable.ic_baseline_female_24)
+                }
+
+                Glide.with(this@MainActivity).load(image).into(binding.ivHeaderImageView);
 
 
 

@@ -1,4 +1,4 @@
-package com.example.rickandmortymvvmapplication.api.responseModel
+package com.example.rickandmortymvvmapplication.model.responseModel
 
 data class GetCharacterByIdResponse(
     val created: String,
@@ -12,5 +12,15 @@ data class GetCharacterByIdResponse(
     val species: String,
     val status: String,
     val type: String,
+    val url: String
+)
+
+data class Location(
+    val name: String,
+    val url: String
+)
+
+data class Origin(
+    val name: String,
     val url: String
 )

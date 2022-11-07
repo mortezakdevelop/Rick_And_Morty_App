@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.root
 
 
-        viewModel.refreshCharacter(44)
+        viewModel.refreshCharacter(7)
         viewModel.characterByIdLiveData.observe(this) { response ->
             if (response == null) {
                 Toast.makeText(this, "unsuccessful network call", Toast.LENGTH_LONG).show()

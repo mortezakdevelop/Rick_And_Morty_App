@@ -20,8 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.root
 
-
-        viewModel.refreshCharacter(7)
+        viewModel.refreshCharacter(9)
         viewModel.characterByIdLiveData.observe(this) { response ->
             if (response == null) {
                 Toast.makeText(this, "unsuccessful network call", Toast.LENGTH_LONG).show()

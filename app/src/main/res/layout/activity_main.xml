@@ -13,19 +13,6 @@
         android:background="#f6ddcc"
         tools:context=".MainActivity">
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/iv_headerImageView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="8dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="16:9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic[7]" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
@@ -35,7 +22,7 @@
             android:textSize="32sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_headerImageView"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Morty Smith" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -57,15 +44,25 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="alive" />
 
-        <View
-            android:id="@+id/view_line"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="#939090"
-            app:layout_constraintTop_toBottomOf="@id/tv_lifeStatus" />
+        <com.google.android.material.card.MaterialCardView
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/cv_head_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_lifeStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/iv_headerImageView"
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic[7]" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_title_origin"
@@ -78,7 +75,7 @@
             android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_line" />
+            app:layout_constraintTop_toBottomOf="@id/cv_head_image" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_origin"
